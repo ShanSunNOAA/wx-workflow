@@ -8,7 +8,7 @@ export WGF="det"   # working group function = "det", "enkf", "ens", "firewx"
 export EXP_NAME=g10km
 export VERSION=$(cat ./VERSION)
 export TAG=g10km
-export OPSROOT=/gpfs/f6/arfs-gsl/world-shared/global/OPSROOT/${EXP_NAME}
+export OPSROOT=/gpfs/f6/arfs-gsl/world-shared/gge/OPSROOT/${EXP_NAME}
 export EXPDIR=${OPSROOT}/exp/${NET}${WGF}
 export COMROOT=${OPSROOT}/com      # task input and output data as well as logs
 export DATAROOT=${OPSROOT}/stmp    # task workdirs ($DATA) which to be removed immediately upon task completion unless KEEPDATA=YES
@@ -49,19 +49,4 @@ export NODES_UPP="<nodes>10:ppn=6</nodes>"
 export WALLTIME_FCST="14:00:00"
 export WALLTIME_MPASSIT="3:00:00"
 export WALLTIME_UPP="2:00:00"
-#
-export REALTIME=true
-export STARTTIME_IC="00:00:01"
-export STARTTIME_FCST="00:00:01"
-export STARTTIME_MPASSIT="00:00:01"
-export STARTTIME_UPP="00:00:01"
-export STARTTIME_PREP_IC="00:30:00"
-export STMP_RETENTION_CYCS=48
-export COM_RETENTION_CYCS='{"default": 96, "lbc,fcst": 48, "upp,nclprd,pyDAmonitor": 960}'  # use " inside and ' outside
-#
-export DO_ARCHIVE=true
-export ARCHIVE_INTERVAL=1  # run the archive task every several cycles
-export ARCHIVE_HPSSDIR="/5year/BMC/wrfruc/global10km"
-export ARCHIVE_COM1_SPEC='{"include":"ioda*, jedivar, nonvar*, fcst, upp, pyDAmonitor, graphics", "exclude":""}'  # use " inside and ' outside
-#export ARCHIVE_STMP=''  # eg. 'fcst,mpassit'  # archive files under the given task umbrella directories
-#export ARCHIVE_STMP_INTERVAL='1'  # ARCHIVE_STMP_INTERVAL must divide ARCHIVE_INTERVAL evenly
+export CYCLETHROTTLE=1
